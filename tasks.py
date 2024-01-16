@@ -17,7 +17,7 @@ def make_celery():
     return celery
 
 celery = make_celery()
-celery = Celery(__name__, broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
+# celery = Celery(__name__, broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
 
 
 # OpenAI client setup
