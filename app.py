@@ -14,12 +14,12 @@ load_dotenv()
 
 app = Flask(__name__)
 
+app.config.from_object('config_production.ProductionConfig')
 
-
-if os.environ.get('FLASK_ENV') == 'production':
-    app.config.from_object('config_production.ProductionConfig')
-else:
-    app.config.from_object('config_development.DevelopmentConfig')
+# if os.environ.get('FLASK_ENV') == 'production':
+#     app.config.from_object('config_production.ProductionConfig')
+# else:
+#     app.config.from_object('config_development.DevelopmentConfig')
 
     # Load OpenAI API Key
 my_api_key = os.environ.get('OPENAI_API_KEY')
