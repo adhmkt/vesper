@@ -13,7 +13,7 @@ from tasks import get_bot_response, celery  # Import the task and Celery instanc
 load_dotenv()
 
 app = Flask(__name__)
-
+# a commen t
 app.config.from_object('config_production.ProductionConfig')
 
 # if os.environ.get('FLASK_ENV') == 'production':
