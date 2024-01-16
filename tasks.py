@@ -8,17 +8,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def make_celery():
+    # Use os.environ.get() to retrieve the Redis URL from the environment variable
+    broker_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
     celery = Celery(
         'tasks',
-        backend=os.environ.get('REDIS_URL'),
-        broker=os.environ.get('REDIS_URL')
+        backend=broker_url,
+        broker=broker_url
     )
-    celery.conf.update(task_serializer='json', accept_content=['json'], result_serializer='json')
+    celery.conf.update(
+        task_serializer='json',
+        accept_content=['json'],
+        result_serializer='json'
+    )
     return celery
 
 celery = make_celery()
-# celery = Celery(__name__, broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
-
 
 # OpenAI client setup
 client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
