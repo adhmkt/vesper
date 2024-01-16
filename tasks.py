@@ -9,9 +9,9 @@ load_dotenv()
 
 def make_celery():
     # Use os.environ.get() to retrieve the Redis URL from the environment variable
-    # broker_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
+    broker_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
     
-    broker_url ="rediss://:p0f52f84ba145e38dfa7b66fd8d53a436cec08b566f32a4082e383667ca8c1d84@ec2-3-226-149-176.compute-1.amazonaws.com:31320"
+    # broker_url ="rediss://:p0f52f84ba145e38dfa7b66fd8d53a436cec08b566f32a4082e383667ca8c1d84@ec2-3-226-149-176.compute-1.amazonaws.com:31320"
 
     
     
